@@ -1,0 +1,6 @@
+dist/*
+public/*
+*.html
+*.ts
+*.js
+*.cjs
