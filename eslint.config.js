@@ -51,5 +51,18 @@ export default [
         ...pluginVitest.environments.env.globals
       }
     }
+  },
+
+  {
+    name: 'app/vue-rules',
+    files: ['**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'off',
+      'vue/html-self-closing': 'off',
+      'vue/no-v-html': 'off',
+      'vue/require-default-prop': 'off',
+      'vue/singleline-html-element-content-newline': 'off',
+      'vue/max-attributes-per-line': 'off'
+    }
   }
 ]
