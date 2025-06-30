@@ -1,6 +1,4 @@
-import { initMocksServer } from '@/mocks/node'
-
-const server = initMocksServer()
+import { server } from '@/mocks/node'
 
 beforeAll(() => {
   server.listen()

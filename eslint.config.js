@@ -1,3 +1,5 @@
+import { defineConfig, globalIgnores } from 'eslint/config'
+import globals from 'globals'
 import js from '@eslint/js'
 import importPlugin from 'eslint-plugin-import'
 import pluginVue from 'eslint-plugin-vue'
@@ -5,15 +7,20 @@ import pluginVitest from '@vitest/eslint-plugin'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import testingLibrary from 'eslint-plugin-testing-library'
 
-export default [
+export default defineConfig([
   {
     name: 'app/files-to-lint',
     files: ['**/*.{js,vue}']
   },
 
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**', '**/public/**']),
+
   {
-    name: 'app/files-to-ignore',
-    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**']
+    languageOptions: {
+      globals: {
+        ...globals.browser
+      }
+    }
   },
 
   js.configs.recommended,
@@ -65,4 +72,4 @@ export default [
       'vue/max-attributes-per-line': 'off'
     }
   }
-]
+])
